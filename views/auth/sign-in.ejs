@@ -1,0 +1,15 @@
+<%- include('../partials/header.ejs') %>
+
+<h1>Sign In</h1>
+
+<form action="/auth/sign-in" method="POST">
+  <label for="email">Email:</label>
+  <input type="email" name="email" id="email" />
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password" />
+  <button type="submit">SIGN IN</button>
+</form>
+
+<p class="error-msg"><%= error %></p>
+
+<%- include('../partials/footer.ejs') %>
