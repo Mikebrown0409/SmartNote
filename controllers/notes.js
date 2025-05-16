@@ -62,4 +62,11 @@ router.get('/:id', async (req,res) => {
   res.render('notes/show.ejs', {note})
 })
 
+// DELETE
+// delete/:id
+router.delete('/:id', async (req,res) => {
+  await Note.findByIdAndDelete(req.params.id)
+  res.redirect('/notes')
+})
+
 module.exports = router;
