@@ -5,6 +5,7 @@ const Note = require('../models/note');
 
 // Middleware used to protect routes that need a logged in user
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
+const note = require('../models/note');
 
 // This is how we can more easily protect ALL routes for this router
 // router.use(ensureLoggedIn);
@@ -52,6 +53,13 @@ router.post('/', async (req,res) => {
     console.log('not good, errrrrr')
     res.redirect('/notes')
   }
+})
+
+//SHOW
+// GET /notes/:id
+router.get('/:id', async (req,res) => {
+  const note = await Note.findById(req.params.id)
+  res.render('notes/show.ejs', {note})
 })
 
 module.exports = router;
