@@ -10,10 +10,10 @@
   <nav>
     <a href="/">🏠</a>
     <div>
-      <a href="/">Idk, dont click?</a>
+      <a href="/notes">NoteBook</a>
       <% if (user) { %>
-        <a href="/notes/new">ADD NOTE</a>
-        <a href="/auth/sign-out">SIGN OUT</a>
+        <a href="/notes/new">Add Note</a>
+        <a href="/auth/sign-out">Sign out</a>
         <span><%= user.name %></span>
       <% } else { %>
         <a href="/auth/sign-up">SIGN UP</a>
