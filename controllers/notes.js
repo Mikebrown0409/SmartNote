@@ -69,4 +69,21 @@ router.delete('/:id', async (req,res) => {
   res.redirect('/notes')
 })
 
+//EDIT
+// GET /notes/:id/edit
+router.get('/:id/edit', async (req,res) => {
+  const note = await Note.findById(req.params.id)
+  res.render('notes/edit.ejs', {note});
+})
+
+// UPDATE
+// POST /notes/:id
+router.put('/:id', async (req,res) => {
+  const note = await Note.findById(req.params.id);
+  note.title = req.body.title;
+  note.content = req.body.content;
+  await note.save();
+  res.redirect(`/notes/${req.params.id}`)
+})
+
 module.exports = router;
