@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+
+<body>
+    <h1>Add A New Note</h1>
+    <form action="/notes" method="POST">
+        <label for="title">Subject Title:</label>
+        <input type="text" name="title" id="title" required>
+
+        <label for="content">Notes Content:</label>
+        <textarea name="content" id="content"></textarea>
+        
+
+        <!-- <label for="newIngredient">New Ingredient:</label>
+        <input type="text" name="newIngredient" id="newIngredient" placeholder="e.g., sugar"> -->
+
+
+        <button type="submit">Add Note</button>
+    </form>
+</body>
+
+
+<%- include('../partials/footer.ejs') %>

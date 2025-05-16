@@ -8,6 +8,9 @@ const methodOverride = require("method-override");
 // logging middleware
 const morgan = require("morgan");
 const session = require('express-session');
+const ensureLoggedIn = require("./middleware/ensure-logged-in");
+const notesController = require('./controllers/notes')
+const authController = require('./controllers/auth');
 
 // Set the port from environment variable or default to 3000
 const port = process.env.PORT || 3000;
@@ -50,13 +53,13 @@ app.get('/', (req, res) => {
   res.render('home.ejs');
 });
 
+app.use('/auth', authController);
 // The '/auth' is the "starts with" path.  The
 // paths defined in the router/controller will be
 // appended to the "starts with" path
-app.use('/auth', require('./controllers/auth'));
-
-// Update the unicorns data resource with your "main" resource
-app.use('/unicorns', require('./controllers/unicorns'));
+// Protected routes
+app.use(ensureLoggedIn); 
+app.use('/notes', notesController);
 
 
 app.listen(port, () => {

@@ -22,13 +22,36 @@ const ensureLoggedIn = require('../middleware/ensure-logged-in');
 // GET /notes/new
 // Example of a protected route
 
+// router.use(async (req,res,next) => {
+//     const currentUser = await User.findById(req.session.user._id);
+//     req.currentUser = currentUser;
+//     next();
+// })
+
 // index after login
-router.get('/', (req, res) => {
-  res.render('notes/index.ejs')
+router.get('/',  async (req, res) => {
+  const userNotes = await Note.find({ user: req.user._id }).sort({ updatedAt: -1 });
+  res.render('notes/index.ejs', { notes: userNotes });
 });
 
-router.get('/new', ensureLoggedIn, (req, res) => {
-  res.send('Create a ');
+// Get /new
+router.get('/new', async (req, res) => {
+  // const tags = await Tag.find({}); - for tag implementation once we get notes working
+  res.render('notes/new.ejs')
 });
+
+// CREATE
+// POST /notes
+router.post('/', async (req,res) => {
+  try {
+    const newNote = new Note(req.body)
+    newNote.user = req.user._id;
+    await newNote.save();
+    res.redirect('/notes');
+  } catch (err) {
+    console.log('not good, errrrrr')
+    res.redirect('/notes')
+  }
+})
 
 module.exports = router;
