@@ -4,19 +4,17 @@
     <h1>Edit Note</h1>
     <form action="/notes/<%= note._id %>?_method=PUT" method="POST">
         <label for="title">Subject Title:</label>
-        <input type="text" name="title" id="title" value="<%= note.title %>"required>
+        <input type="text" name="title" id="title" value="<%= note.title %>" required>
 
         <label for="content">Notes Content:</label>
-        <textarea name="content" id="content" <%= note.content %>></textarea>
+        <textarea name="content" id="content" required><%= note.content %></textarea>
         
-
-        <!-- <label for="newIngredient">New Ingredient:</label>
-        <input type="text" name="newIngredient" id="newIngredient" placeholder="e.g., sugar"> -->
-
+        <label for="tags">Tags (comma separated):</label>
+        <input type="text" name="tagInput" id="tags" placeholder="e.g., work, important, idea" 
+            value="<%= note.tags.map(tag => tag.name).join(', ') %>">
 
         <button type="submit">Edit Note</button>
     </form>
 </body>
-
 
 <%- include('../partials/footer.ejs') %>

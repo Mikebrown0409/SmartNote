@@ -1,20 +1,39 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Hello </h1>
+<h1>Hello <%= user.name %></h1>
 <p><em>Let's get to work!</em></p>
 
-<% if (notes.length > 0) { %>
-      <ul>
-        <% notes.forEach(note => { %>
-          <li>
-            <a href="/notes/<%= note._id %>"><%= note.title %></a>
-          </li>
-        <% }) %>
-      </ul>
-    <% } else { %>
-      <p>No Notes Available, Create One!</p>
-    <% } %>
+<% if (tags && tags.length > 0) { %>
+  <div class="tag-filters">
+    <h3>Filter by tag:</h3>
+    <a href="/notes" class="tag <%= !tagFilter ? 'active' : '' %>">All</a>
+    <% tags.forEach(tag => { %>
+      <a href="/notes?tag=<%= tag.name %>" class="tag <%= tagFilter === tag.name ? 'active' : '' %>">
+        <%= tag.name %>
+      </a>
+    <% }) %>
+  </div>
+<% } %>
 
-<a href="/notes/new">ADD NOTE</a>
+<% if (notes.length > 0) { %>
+  <ul class="notes-list">
+    <% notes.forEach(note => { %>
+      <li>
+        <a href="/notes/<%= note._id %>"><%= note.title %></a>
+        <% if (note.tags && note.tags.length > 0) { %>
+          <div class="note-tags">
+            <% note.tags.forEach(tag => { %>
+              <a href="/notes?tag=<%= tag.name %>" class="tag small"><%= tag.name %></a>
+            <% }) %>
+          </div>
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>No Notes Available, Create One!</p>
+<% } %>
+
+<a href="/notes/new" class="btn">ADD NOTE</a>
 
 <%- include('../partials/footer.ejs') %>

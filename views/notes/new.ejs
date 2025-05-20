@@ -7,16 +7,13 @@
         <input type="text" name="title" id="title" required>
 
         <label for="content">Notes Content:</label>
-        <textarea name="content" id="content"></textarea>
+        <textarea name="content" id="content" required></textarea>
         
-
-        <!-- <label for="newIngredient">New Ingredient:</label>
-        <input type="text" name="newIngredient" id="newIngredient" placeholder="e.g., sugar"> -->
-
+        <label for="tags">Tags (comma separated):</label>
+        <input type="text" name="tagInput" id="tags" placeholder="e.g., work, important, idea">
 
         <button type="submit">Add Note</button>
     </form>
 </body>
-
 
 <%- include('../partials/footer.ejs') %>

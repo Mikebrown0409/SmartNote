@@ -4,6 +4,16 @@
     <h1><%= note.title %></h1>
     <h3>Content:</h3>
     <%= note.content %>
+    
+    <% if (note.tags && note.tags.length > 0) { %>
+    <h3>Tags:</h3>
+    <div class="tags">
+        <% note.tags.forEach(tag => { %>
+            <a href="/notes?tag=<%= tag.name %>" class="tag"><%= tag.name %></a>
+        <% }) %>
+    </div>
+    <% } %>
+    
     <br>
     <br>
     <a href="/notes/<%= note._id %>/edit">Edit Note</a> <br>
@@ -11,6 +21,5 @@
         <button type="submit">Delete Note</button>
     </form>
 </body>
-
 
 <%- include('../partials/footer.ejs') %>

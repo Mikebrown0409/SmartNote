@@ -12,13 +12,13 @@ body {
 
 nav,
 footer {
-  background-color: lightblue;
+  background-color: rgba(23, 28, 91, 0.897);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2vmin;
   font-size: 2vh;
-  color: lightslategray;
+  color: rgb(211, 218, 225);
 }
 
 nav a {
@@ -76,4 +76,48 @@ button:hover {
 
 .error-msg {
   color: rgb(223, 116, 116);
+}
+
+/* Tag styles */
+.tag {
+  display: inline-block;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.tag:hover {
+  background-color: #ccc;
+}
+
+.tag.active {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.tag.small {
+  font-size: 0.8em;
+  padding: 2px 6px;
+}
+
+.tags {
+  margin: 10px 0;
+}
+
+.tag-filters {
+  margin-bottom: 20px;
+}
+
+.note-tags {
+  margin-top: 3px;
+  display: inline-block;
+}
+
+.notes-list li {
+  margin-bottom: 10px;
 }
