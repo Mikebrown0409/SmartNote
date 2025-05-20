@@ -20,7 +20,7 @@ footer {
   font-size: 2vh;
   color: rgb(211, 218, 225);
 }
-
+/* 
 nav a {
   text-decoration: none;
   color: slategray;
@@ -38,7 +38,7 @@ nav a {
 nav span {
   font-size: 1.5vmin;
   color: lightslategray;
-}
+} */
 
 main {
   display: flex;

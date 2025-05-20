@@ -83,7 +83,7 @@ router.get('/', async (req, res) => {
 });
 
 // Get /new
-router.get('/new', async (req, res) => {
+router.get('/new', (req, res) => {
   res.render('notes/new.ejs');
 });
 

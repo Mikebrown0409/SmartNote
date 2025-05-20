@@ -1,7 +1,7 @@
 <%- include('../partials/header.ejs') %>
 
-<h1>Hello <%= user.name %></h1>
-<p><em>Let's get to work!</em></p>
+<h1>Hello, <%= user.name %>!</h1>
+<p><em>The canvas is yours...</em></p>
 
 <% if (tags && tags.length > 0) { %>
   <div class="tag-filters">
@@ -34,6 +34,9 @@
   <p>No Notes Available, Create One!</p>
 <% } %>
 
-<a href="/notes/new" class="btn">ADD NOTE</a>
+
+<a href="/notes/new">
+  <button type="submit">ADD NOTE</button>
+</a>
 
 <%- include('../partials/footer.ejs') %>
