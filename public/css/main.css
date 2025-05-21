@@ -5,40 +5,42 @@
 
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
+  padding-top: 70px;
+  line-height: 1.5;
   grid-template-rows: auto 1fr auto;
 }
 
-nav,
+/* nav,
 footer {
-  background-color: rgba(23, 28, 91, 0.897);
+  background-color: rgba(228, 229, 234, 0.897);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 2vmin;
   font-size: 2vh;
-  color: rgb(211, 218, 225);
-}
-/* 
-nav a {
+  color: rgb(75, 101, 221);
+} */
+
+/* nav a {
   text-decoration: none;
-  color: slategray;
+  color: rgb(237, 235, 235);
   background-color: white;
   padding: 1vmin;
   border-radius: 1vmin;
 
   &:hover {
-    color: gray;
-    background-color: lightslategray;
-    color: white;
+    color: rgb(227, 236, 227);
+    opacity: 80%;
+    background-color: rgb(39, 41, 40);
   }
-}
+}  */
 
 nav span {
   font-size: 1.5vmin;
   color: lightslategray;
-} */
+}
 
 main {
   display: flex;
@@ -76,48 +78,4 @@ button:hover {
 
 .error-msg {
   color: rgb(223, 116, 116);
-}
-
-/* Tag styles */
-.tag {
-  display: inline-block;
-  background-color: #e0e0e0;
-  color: #333;
-  padding: 3px 8px;
-  border-radius: 12px;
-  margin-right: 5px;
-  margin-bottom: 5px;
-  text-decoration: none;
-  font-size: 0.9em;
-}
-
-.tag:hover {
-  background-color: #ccc;
-}
-
-.tag.active {
-  background-color: #4a90e2;
-  color: white;
-}
-
-.tag.small {
-  font-size: 0.8em;
-  padding: 2px 6px;
-}
-
-.tags {
-  margin: 10px 0;
-}
-
-.tag-filters {
-  margin-bottom: 20px;
-}
-
-.note-tags {
-  margin-top: 3px;
-  display: inline-block;
-}
-
-.notes-list li {
-  margin-bottom: 10px;
 }

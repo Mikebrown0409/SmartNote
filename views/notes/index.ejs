@@ -1,42 +1,66 @@
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/header.ejs')%>
 
-<h1>Hello, <%= user.name %>!</h1>
-<p><em>The canvas is yours...</em></p>
+<div class="container py-4 py-lg-5">
 
-<% if (tags && tags.length > 0) { %>
-  <div class="tag-filters">
-    <h3>Filter by tag:</h3>
-    <a href="/notes" class="tag <%= !tagFilter ? 'active' : '' %>">All</a>
-    <% tags.forEach(tag => { %>
-      <a href="/notes?tag=<%= tag.name %>" class="tag <%= tagFilter === tag.name ? 'active' : '' %>">
-        <%= tag.name %>
-      </a>
-    <% }) %>
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom" data-aos="fade-down">
+    <div>
+      <h1 class="fw-bold mb-0">Hello, <%= user.name %>!</h1>
+      <p class="text-muted mb-0"><em>The canvas is yours...</em></p>
+    </div>
+    <a href="/notes/new" class="btn btn-primary btn-lg">
+      + Add Note
+    </a>
   </div>
-<% } %>
 
-<% if (notes.length > 0) { %>
-  <ul class="notes-list">
-    <% notes.forEach(note => { %>
-      <li>
-        <a href="/notes/<%= note._id %>"><%= note.title %></a>
-        <% if (note.tags && note.tags.length > 0) { %>
-          <div class="note-tags">
-            <% note.tags.forEach(tag => { %>
-              <a href="/notes?tag=<%= tag.name %>" class="tag small"><%= tag.name %></a>
-            <% }) %>
+  <% if (tags.length > 0) { %>
+    <div class="mb-4" data-aos="fade-right" data-aos-delay="100">
+      <h5 class="mb-2">Filter by Tag:</h5>
+      <a href="/notes" class="btn btn-sm <%= !tagFilter ? 'btn-primary' : 'btn-outline-secondary' %> me-1 mb-1">All Notes</a>
+      <% tags.forEach(tag => { %>
+        <a href="/notes?tag=<%= tag.name %>" class="btn btn-sm <%= tagFilter === tag.name ? 'btn-primary' : 'btn-outline-secondary' %> me-1 mb-1">
+          <%= tag.name %>
+        </a>
+      <% }) %>
+    </div>
+  <% } %>
+
+  <% if (notes.length > 0) { %>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <% notes.forEach((note, index) => { %>
+        <div class="col" data-aos="fade-up" data-aos-delay="<%= (index % 3) * 100 %>">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">
+                <a href="/notes/<%= note._id %>" class="text-decoration-none stretched-link"><%= note.title %></a>
+              </h5>
+              <% if (note.content.length > 0) { %>
+                <p class="card-text text-muted small flex-grow-1">
+                  <%= note.content.substring(0, 100) %><% if (note.content.length > 100) { %>...<% } %>
+                </p>
+              <% } else { %>
+                <p class="card-text text-muted small flex-grow-1"><em>No content preview.</em></p>
+              <% } %>
+              
+              <% if (note.tags.length > 0) { %>
+                <div class="mt-auto pt-2">
+                  <% note.tags.forEach(tag => { %>
+                    <a href="/notes?tag=<%= tag.name %>" class="badge rounded-pill text-bg-light me-1 text-decoration-none"><%= tag.name %></a>
+                  <% }) %>
+                </div>
+              <% } %>
+            </div>
           </div>
-        <% } %>
-      </li>
-    <% }) %>
-  </ul>
-<% } else { %>
-  <p>No Notes Available, Create One!</p>
-<% } %>
+        </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <div class="text-center py-5" data-aos="fade-in" data-aos-delay="200">
+      <h4>Your Notebook is Empty!</h4>
+      <p class="text-muted mb-4">Looks like you haven't jotted down any thoughts yet.</p>
+      <a href="/notes/new" class="btn btn-primary btn-lg">+ Create Your First Note</a>
+    </div>
+  <% } %>
 
-
-<a href="/notes/new">
-  <button type="submit">ADD NOTE</button>
-</a>
+</div>
 
 <%- include('../partials/footer.ejs') %>
