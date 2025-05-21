@@ -8,28 +8,6 @@ const Tag = require('../models/tag');
 const ensureLoggedIn = require('../middleware/ensure-logged-in');
 const note = require('../models/note');
 
-// This is how we can more easily protect ALL routes for this router
-// router.use(ensureLoggedIn);
-
-// ALL paths start with '/notes'
-
-// index action
-// GET /notes
-// Example of a non-protected route
-// router.get('/', (req, res) => {
-//   res.send('List of all notes - not protected');
-// });
-
-
-// GET /notes/new
-// Example of a protected route
-
-// router.use(async (req,res,next) => {
-//     const currentUser = await User.findById(req.session.user._id);
-//     req.currentUser = currentUser;
-//     next();
-// })
-
 // Helper function to handle tags
 async function processTagInput(tagInput, userId) {
   if (!tagInput) return [];
@@ -78,7 +56,7 @@ router.get('/', async (req, res) => {
   res.render('notes/index.ejs', { 
     notes: userNotes, 
     tags: userTags,
-    tagFilter
+    tagFilter,
   });
 });
 
