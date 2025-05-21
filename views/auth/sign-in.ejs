@@ -2,13 +2,16 @@
 
 <h1>Sign In</h1>
 
-<form action="/auth/sign-in" method="POST">
+<form action="/auth/sign-in" method="POST" class="auth-form">
   <label for="email">Email:</label>
   <input type="email" name="email" id="email" />
   <label for="password">Password:</label>
   <input type="password" name="password" id="password" />
   <button type="submit">SIGN IN</button>
 </form>
+<p class="text-center mt-3">
+  Don't have an account? <a href="/auth/sign-up">Sign Up</a>
+</p>
 
 <p class="error-msg"><%= error %></p>
 

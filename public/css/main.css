@@ -26,21 +26,64 @@ main {
   padding: 1.5rem 0; 
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-    outline: none;
-    border-color: rgb(75, 101, 221);
-    box-shadow: 0 0 0 0.2rem rgba(75, 101, 221, 0.25);
+form.auth-form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 0.375rem;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,.075);
 }
 
+form.auth-form label {
+  font-size: 0.9rem;
+  color: #495057;
+  font-weight: 500;
+  text-align: right;
+  padding-right: 0.5rem;
+}
 
-form button[type='submit'] {
-  grid-column: span 2;
-  background-color: rgb(20, 95, 225);
+form.auth-form input,
+form.auth-form textarea,
+form.auth-form select {
+  font-size: 0.95rem; 
+  padding: 0.65rem 0.75rem; 
+  border-radius: 0.25rem; 
+  border: 1px solid #ced4da; 
+  width: 100%;
+  background-color: #fff;
+  color: #212529;
+}
+
+form.auth-form input:focus,
+form.auth-form textarea:focus,
+form.auth-form select:focus {
+  outline: none;
+  border-color: rgb(75, 101, 221);
+  box-shadow: 0 0 0 0.25rem rgba(75, 101, 221, 0.25);
+}
+
+form.auth-form button[type='submit'] {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  background-color: rgb(75, 101, 221);
   color: white;
   border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+form.auth-form button[type='submit']:hover {
+  background-color: rgb(55, 71, 191);
 }
 
 button:hover { 
