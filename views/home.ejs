@@ -1,20 +1,23 @@
 <%- include('./partials/header.ejs') %>
 
-<!-- Simple Hero Section -->
 <section class="hero-simple text-center">
   <div class="container" data-aos="fade-up">
-    <i class="bi bi-journal-richtext" style="font-size: 3rem; margin-bottom: 1rem; display: inline-block;"></i>
-    <h1 class="fw-bold">SmartNote</h1>
-    <p class="lead col-lg-8 mx-auto">
+    <div data-aos="zoom-in" data-aos-delay="200"> 
+      <i class="bi bi-journal-richtext hero-icon"></i> 
+    </div>
+    <h1 class="fw-bold hero-title" data-aos="fade-up" data-aos-delay="300">SmartNote</h1> 
+    <p class="lead col-lg-8 mx-auto hero-subtitle" data-aos="fade-up" data-aos-delay="400">
       The straightforward way to capture your thoughts and ideas.
       Clean, simple, and always at your fingertips.
     </p>
-    <a href="/notes/new" class="btn btn-light btn-hero shadow-sm">Create a Note</a>
-    <% if (!user) { %>
-      <a href="/auth/sign-up" class="btn btn-outline-light btn-hero shadow-sm">Sign Up</a>
-    <% } else { %>
-      <a href="/notes" class="btn btn-outline-light btn-hero shadow-sm">My Notes</a>
-    <% } %>
+    <div data-aos="fade-up" data-aos-delay="500"> 
+      <a href="/notes/new" class="btn btn-light btn-lg btn-hero shadow-sm me-2">Create a Note</a>
+      <% if (!user) { %>
+        <a href="/auth/sign-up" class="btn btn-outline-light btn-lg btn-hero shadow-sm">Sign Up</a>
+      <% } else { %>
+        <a href="/notes" class="btn btn-outline-light btn-lg btn-hero shadow-sm">My Notes</a>
+      <% } %>
+    </div>
   </div>
 </section>
 

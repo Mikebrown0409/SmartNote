@@ -10,35 +10,12 @@ body {
   padding-top: 70px;
   line-height: 1.5;
   grid-template-rows: auto 1fr auto;
+  background-color: #f4f7f6;
+  color: #212529; 
 }
 
-/* nav,
-footer {
-  background-color: rgba(228, 229, 234, 0.897);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2vmin;
-  font-size: 2vh;
-  color: rgb(75, 101, 221);
-} */
-
-/* nav a {
-  text-decoration: none;
-  color: rgb(237, 235, 235);
-  background-color: white;
-  padding: 1vmin;
-  border-radius: 1vmin;
-
-  &:hover {
-    color: rgb(227, 236, 227);
-    opacity: 80%;
-    background-color: rgb(39, 41, 40);
-  }
-}  */
-
 nav span {
-  font-size: 1.5vmin;
+  font-size: 0.9rem; 
   color: lightslategray;
 }
 
@@ -46,33 +23,27 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vmin;
+  padding: 1.5rem 0; 
 }
 
-form {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 2vmin;
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgb(75, 101, 221);
+    box-shadow: 0 0 0 0.2rem rgba(75, 101, 221, 0.25);
 }
 
-form * {
-  font-size: 2vmin;
-  padding: 1vmin;
-  border-radius: 1vmin;
-}
-
-input,
-textarea,
-select {
-  border: 0.3vmin solid black;
-}
 
 form button[type='submit'] {
   grid-column: span 2;
   background-color: rgb(20, 95, 225);
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
-button:hover {
+button:hover { 
   background-color: lightslategray;
   color: white;
 }
@@ -82,35 +53,110 @@ button:hover {
 }
 
 .hero-simple {
-    background-color: #6f42c1; 
-    color: white;
-    padding: 4rem 0;
-  }
-  .hero-simple h1 {
-    font-size: 2.8rem; 
-  }
-  .hero-simple p.lead {
-    font-size: 1.15rem;
-    margin-bottom: 1.5rem;
-  }
-  .btn-hero { 
-    padding: 0.6rem 1.5rem;
-    font-size: 1.05rem;
-    margin: 0.5rem;
-  }
-  .section-padding {
-    padding: 3rem 0;
-  }
-  .feature-icon-sm {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #6f42c1; 
-  }
-  .card-feature { 
-    border: none; 
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  .card-feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.10) !important; 
-  }
+  color: white;
+  padding: 6rem 1rem; 
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(-45deg, #6a11cb, #2575fc, #8600ec, #fc6767);
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+  text-align: center; 
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-simple .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  animation: pulseIcon 2.5s ease-in-out infinite;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes pulseIcon {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.hero-title { 
+  font-size: calc(2.5rem + 2vw);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  margin-bottom: 1rem;
+  color: white; 
+  font-weight: bold; 
+}
+
+.hero-subtitle { 
+  font-size: calc(1rem + 0.5vw);
+  margin-bottom: 2.5rem;
+  opacity: 0.9;
+  color: white; 
+}
+
+.btn-hero {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  margin: 0.5rem; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.btn-hero.btn-light {
+  background-color: white;
+  color: #5B2ABF; 
+  border: none;
+}
+.btn-hero.btn-light:hover {
+  background-color: #f8f9fa;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  color: #5B2ABF; 
+}
+
+.btn-hero.btn-outline-light {
+  border-width: 2px;
+  color: white; 
+  border-color: white; 
+}
+.btn-hero.btn-outline-light:hover {
+  background-color: rgba(255,255,255,0.1);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  color: white; 
+}
+
+.section-padding {
+  padding: 3rem 1rem; 
+}
+
+.feature-icon-sm {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #6f42c1; 
+}
+
+.card-feature { 
+  border: none; 
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #fff; 
+  border-radius: 0.375rem; 
+}
+.card-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.10) !important; 
+}
+
+
+
