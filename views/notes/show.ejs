@@ -1,25 +1,44 @@
 <%- include('../partials/header.ejs') %>
 
-<body>
-    <h1><%= note.title %></h1>
-    <h3>Content:</h3>
-    <%= note.content %>
-    
-    <% if (note.tags && note.tags.length > 0) { %>
-    <h3>Tags:</h3>
-    <div class="tags">
-        <% note.tags.forEach(tag => { %>
-            <a href="/notes?tag=<%= tag.name %>" class="tag"><%= tag.name %></a>
-        <% }) %>
+<div class="container py-4 py-lg-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-8">
+
+      <div class="d-flex justify-content-between align-items-start mb-3">
+        <div>
+          <h1 class="fw-bold display-5 mb-1"><%= note.title %></h1>
+          <p class="text-muted mb-0">
+            Last updated: <%= new Date(note.updatedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) %>
+          </p>
+        </div>
+        <div class="ms-3">
+          <a href="/notes/<%= note._id %>/edit" class="btn btn-sm btn-outline-secondary me-2">
+            <i class="bi bi-pencil-square me-1"></i>Edit
+          </a>
+          <form action="/notes/<%= note._id %>?_method=DELETE" method="POST" class="d-inline" onsubmit="return confirm('Are you sure you want to delete this note?');">
+            <button type="submit" class="btn btn-sm btn-outline-danger">
+              <i class="bi bi-trash3 me-1"></i>Delete
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <% if (note.tags.length > 0) { %>
+        <div class="mb-4">
+          <% note.tags.forEach(tag => { %>
+            <a href="/notes?tag=<%= tag.name %>" class="badge rounded-pill text-bg-secondary me-1 text-decoration-none"><%= tag.name %></a>
+          <% }) %>
+        </div>
+      <% } %>
+      
+      <hr class="my-4">
+
+      <div class="note-content-display py-3">
+        <%- note.content %>
+      </div>
+
     </div>
-    <% } %>
-    
-    <br>
-    <br>
-    <a href="/notes/<%= note._id %>/edit">Edit Note</a> <br>
-    <form action="/notes/<%= note._id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete Note</button>
-    </form>
-</body>
+  </div>
+</div>
 
 <%- include('../partials/footer.ejs') %>
