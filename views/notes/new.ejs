@@ -1,22 +1,35 @@
 <%- include('../partials/header.ejs') %>
 
-<body>
-    <h1>Add A New Note</h1>
-
+<div class="container-fluid px-0 flex-grow-1 d-flex flex-column note-editor-page">
+  <form action="/notes" method="POST" class="d-flex flex-column flex-grow-1 bg-white shadow-sm">
     
-    <form action="/notes" method="POST">
-        <label for="title">Subject Title:</label>
-        <input type="text" name="title" id="title" required>
+    <div class="note-editor-header p-3 border-bottom">
+      <div class="container">
+        <div class="row align-items-center g-2">
+          <div class="col">
+            <label for="title" class="visually-hidden">Title</label>
+            <input type="text" name="title" id="title" class="form-control form-control-flush fs-4 fw-medium" required placeholder="Untitled Note">
+          </div>
+          <div class="col-auto">
+            <label for="tags" class="visually-hidden">Tags</label>
+            <input type="text" name="tagInput" id="tags" class="form-control form-control-sm" placeholder="Add tags (comma separated)...">
+          </div>
+          <div class="col-auto">
+            <a href="/notes" class="btn btn-sm btn-outline-secondary me-2">Cancel</a>
+            <button type="submit" class="btn btn-sm btn-primary">
+              <i class="bi bi-save me-1"></i>Save Note
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <label for="content">Notes Content:</label>
-        <textarea name="content" id="content" required></textarea>
-        
-        <label for="tags">Tags (comma separated):</label>
-        <input type="text" name="tagInput" id="tags" placeholder="e.g., work, important, idea">
+    <div class="note-editor-content flex-grow-1 p-3 p-md-4">
+        <label for="content" class="visually-hidden">Content</label>
+        <textarea name="content" id="content" class="form-control form-control-flush border-0 h-100 w-100" rows="10" required placeholder="Start writing your thoughts here..." style="resize: none; font-size: 1.05rem; line-height: 1.75;"></textarea>
+    </div>
 
-        <button type="submit">Add Note</button>
-    </form>
-</body>
+  </form>
+</div>
 
 <%- include('../partials/footer.ejs') %>
-

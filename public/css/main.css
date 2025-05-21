@@ -69,6 +69,7 @@ select {
 
 form button[type='submit'] {
   grid-column: span 2;
+  background-color: blue;
 }
 
 button:hover {
