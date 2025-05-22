@@ -22,7 +22,6 @@ const noteSchema = new Schema({
     ref: 'Tag',
   }],
 }, {
-  // Mongoose will maintain a createdAt & updatedAt property
   timestamps: true
 });
 

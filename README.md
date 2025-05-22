@@ -8,7 +8,7 @@ SmartNote is a clean and intuitive note-taking application designed to help you 
 
 The app was created to address the need for a straightforward note-taking solution that doesn't overwhelm users with unnecessary features. Whether you're jotting down quick thoughts, planning projects, or organizing your daily tasks, SmartNote keeps everything simple and accessible.
 
-![SmartNote Interface](./public/screenshots/ui.jpeg)
+![SmartNote Interface](./public/screenshots/ui.png)
 
 ## Features
 
