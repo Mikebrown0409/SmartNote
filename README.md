@@ -48,6 +48,7 @@ View the project planning and future enhancements on our [Trello Board](https://
 - **Authentication**: bcrypt for password hashing, express-session for session management
 - **Frontend**: EJS templating engine, Bootstrap 5
 - **Styling**: Custom CSS with Bootstrap Icons
+- **Favicon Generation**: RealFaviconGenerator.net 
 - **Middleware**: method-override, morgan for logging
 - **Deployment**: Heroku
 
@@ -63,7 +64,7 @@ Our roadmap includes several exciting enhancements planned for future releases:
 - **Mobile App**: Develop native mobile applications
 - **Backup & Sync**: Cloud backup and synchronization across devices
 - **AI Review**: Add high-level review from AI to enhance note content
-- **Speak-to-Listen**: Add speak-to-listen capability to new notes.
+- **Speak-to-Listen**: Add speak-to-listen capability to new notes
 - **Note Templates**: Pre-defined templates for common note types
 
 For detailed progress tracking and additional feature requests, visit our [Trello Board](https://trello.com/b/ZTMUEySL/project-2v0).
