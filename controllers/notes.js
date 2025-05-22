@@ -91,7 +91,7 @@ router.post('/', async (req, res) => {
 //SHOW
 // GET /notes/:id
 router.get('/:id', async (req,res) => {
-  const note = await Note.findById(req.params.id)
+  const note = await Note.findById(req.params.id).populate('tags')
   res.render('notes/show.ejs', {note})
 })
 

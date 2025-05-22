@@ -206,5 +206,9 @@ button:hover {
   word-wrap: break-word;   
 }
 
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
 
 
