@@ -74,8 +74,8 @@ router.post('/', async (req, res) => {
     
     // Create note
     const newNote = new Note({
-      title: req.body.title,
-      content: req.body.content,
+      title: req.body.title.trim(),
+      content: req.body.content.trim(),
       user: req.user._id,
       tags: tagIds
     });
@@ -117,8 +117,8 @@ router.put('/:id', async (req, res) => {
     const tagIds = await processTagInput(req.body.tagInput, req.user._id);
     
     const note = await Note.findById(req.params.id);
-    note.title = req.body.title;
-    note.content = req.body.content;
+    note.title = req.body.title.trim();
+    note.content = req.body.content.trim();
     note.tags = tagIds;
     
     await note.save();
